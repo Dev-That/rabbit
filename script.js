@@ -7,6 +7,16 @@ let web3 = new Web3(rpcUrl);
 const decimals = 8;
 const savmchainId = 3110;
 
+window.ethereum.on('connect', () => {
+    getAccounts((accounts)=>{
+        if (accounts.length !== 0) {
+            connectButton.disabled = true;
+            mintButton.disabled = false;
+        }
+    })
+    
+})
+
 connectButton.addEventListener('click', () => {
     // Connect to MetaMask
     if (window.ethereum) {
@@ -53,6 +63,11 @@ function getTokenSupply() {
         });
 }
 
+function getAccounts(cb){
+    window.ethereum.request({ method: 'eth_accounts' }).then(cb);
+}
+
+
 
 
 mintButton.addEventListener('click', () => {
@@ -60,9 +75,9 @@ mintButton.addEventListener('click', () => {
     const amountInTokenUnits = BigInt(amount) * (BigInt(10) ** BigInt(decimals));
     getChain((correctChain) => {
         if (!correctChain) return alert('Wrong Chain!\nUse SatoshiVM Testnet');
-        web3.eth.getAccounts()
+        window.ethereum.request({ method: 'eth_accounts' })
             .then(accounts => {
-                console.log(accounts);
+                console.log(tokenContract);
                 if (accounts.length === 0) {
                     console.error("No accounts found. Ensure MetaMask is connected.");
                     return;
@@ -76,5 +91,7 @@ mintButton.addEventListener('click', () => {
                 console.error(err);
             });
     })
+
+
 
 });
