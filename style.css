@@ -36,8 +36,19 @@ body {
 }
 
 .svnscanlink {
-    margin-top: 20px
+    display: inline;
+   
 }
+
+.svnscanlink img{
+    width:20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.links-container{
+    margin-top: 50px;
+}
+
 
 #logo img {
     width: 100%;
