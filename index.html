@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="rabbiticon.png" type="image/x-icon">
+    <link rel="icon" href="rabbiticon.png" type="image/x-icon">
+    <title>RabBIT Minting Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.4.0/dist/web3.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+
+            <div class="card">
+                <h1 style="text-align: center;">RabBIT FREE Token Mint</h1>
+                <p>Max Mint per wallet: 21000 Tokens</p>
+                <input type="number" id="tokenAmount" placeholder="Enter token amount" max="21000" step="100">
+                <button id="connectButton">Connect Wallet</button>
+                <button id="mintButton" disabled>MINT</button>
+                <br>
+                <br>
+                <p>Supply <span id="supply">0</span> / 210000000</p>
+            </div>
+            <div id="logo">
+                <img src="rabbit.png" alt="SVMScan Icon">
+            </div>
+
+        </div>
+        <a class="svnscanlink" href="https://testnet.svmscan.io/address/0x7B1998888821909e2900A82fA30a9486d8B8cC76" target="_blank">
+            <img src="explorer_ico.png" alt="SVMScan Icon">
+        </a>
+    </div>
+    <script src="tokenABI.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
